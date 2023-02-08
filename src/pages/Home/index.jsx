@@ -1,5 +1,5 @@
 import { Header } from "../../components/Header";
-import { Input } from "../../components/Input";
+import { Input } from "../../components/Fieldset";
 
 export const Home = () => {
   return (
@@ -10,6 +10,23 @@ export const Home = () => {
         <p>
           Nossa aplicação está em desenvolvimento, em breve teremos novidades
         </p>
+
+
+        <form action="">
+
+          <fieldset>
+           
+            
+            <label htmlFor="">teste</label>
+            <input type="text" />
+          </fieldset>
+          <fieldset>
+            
+            
+            <label htmlFor="">teste</label>
+            <input type="text" />
+          </fieldset>
+        </form>
       </section>
     </>
   );

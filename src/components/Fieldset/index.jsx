@@ -1,4 +1,4 @@
-export const Input = () => {
+export const FieldSet = () => {
     return (
         <fieldset>
             <label htmlFor=""></label>

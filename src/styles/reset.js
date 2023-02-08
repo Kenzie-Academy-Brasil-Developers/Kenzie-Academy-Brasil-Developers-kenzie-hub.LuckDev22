@@ -9,8 +9,12 @@ export const Reset = createGlobalStyle`
     outline: 0;
     list-style: none;
     text-decoration: none;
+    
 }
 
+fieldset {
+    border: 0;
+}
 
 button{
     cursor: pointer;
