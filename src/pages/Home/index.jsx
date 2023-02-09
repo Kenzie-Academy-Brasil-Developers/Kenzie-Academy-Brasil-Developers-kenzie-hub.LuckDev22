@@ -1,7 +1,7 @@
 import { Header } from "../../components/Header";
-import { Input } from "../../components/Fieldset";
 
-export const Home = () => {
+
+export const HomePage = () => {
   return (
     <>
       <Header />

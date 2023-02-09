@@ -1,14 +1,14 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { Home } from "../pages/Home";
-import { Login } from "../pages/Login";
-import { Register } from "../pages/Register";
+import { HomePage } from "../pages/Home";
+import { LoginPage } from "../pages/Login";
+import { RegisterPage } from "../pages/Register";
 
 export const RoutesMain = () => {
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/register" element={<Register />} />
+      <Route path="/" element={<LoginPage />} />
+      <Route path="/home" element={<HomePage />} />
+      <Route path="/register" element={<RegisterPage />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
