@@ -11,7 +11,7 @@ export const LoginPage = () => {
         <div>
           <h2>Login</h2>
         </div>
-        <form onSubmit={} noValidate>
+        <form noValidate>
           <label htmlFor="email">Email</label>
           <input
               type="email"

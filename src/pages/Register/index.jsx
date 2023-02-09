@@ -4,7 +4,7 @@ import { Header } from "../../components/Header";
 export const RegisterPage = () => {
   return (
     <>
-      <Header />
+      <Header to="/login" children="Voltar"/>
       <section>
         <div>
           <h2>Crie sua conta</h2>

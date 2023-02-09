@@ -1,7 +1,10 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
-export const Header = ({to, children, logout}) => {
+export const Header = ({ to, children, logout }) => {
   return (
-    <header><h1>Kenzie Hub <Link></Link> </h1></header>
-  )
-}
+    <header>
+      <h1>Kenzie Hub</h1>
+      <Link to={to}>{children}</Link>{" "}
+    </header>
+  );
+};
