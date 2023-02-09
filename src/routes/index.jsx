@@ -3,7 +3,7 @@ import { HomePage } from "../pages/Home";
 import { LoginPage } from "../pages/Login";
 import { RegisterPage } from "../pages/Register";
 
-export const RoutesMain = () => {
+export const RoutesPage = () => {
   return (
     <Routes>
       <Route path="/" element={<LoginPage />} />
@@ -13,3 +13,5 @@ export const RoutesMain = () => {
     </Routes>
   );
 };
+
+
