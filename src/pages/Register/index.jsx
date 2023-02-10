@@ -5,10 +5,15 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "./registerSchema";
 import { toast } from "react-toastify";
+import { Fieldset } from "../../components/Fieldset";
 
 export const RegisterPage = () => {
-  const { register, handleSubmit, formState: {errors} } = useForm({
-    resolver: yupResolver(registerSchema)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(registerSchema),
   });
   const navigate = useNavigate();
 
@@ -16,7 +21,7 @@ export const RegisterPage = () => {
     try {
       const response = await Api.post("/users", data);
       console.log(response);
-      toast.success(`Usuario ${response.data.name} cadastrado com sucesso!`)
+      toast.success(`Usuario ${response.data.name} cadastrado com sucesso!`);
       navigate("/");
     } catch (error) {
       toast.error(error.response.data.message);
@@ -32,66 +37,60 @@ export const RegisterPage = () => {
           <p>Rapido e grátis, vamos nessa</p>
         </div>
         <form onSubmit={handleSubmit(registerUser)}>
-          <fieldset>
-            <label htmlFor="name">Nome</label>
-            <input
-              type="text"
-              id="name"
-              placeholder="Digite aqui seu nome"
-              {...register("name")}
-            />
-            <aria-label>{errors.name?.message}</aria-label>
-          </fieldset>
-          <fieldset>
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              placeholder="Digite aqui seu email"
-              {...register("email")}
-            />
-            <aria-label>{errors.email?.message}</aria-label>
-          </fieldset>
-          <fieldset>
-            <label htmlFor="password">Senha</label>
-            <input
-              type="password"
-              id="password"
-              placeholder="Digite aqui sua senha"
-              {...register("password")}
-            />
-            <aria-label>{errors.password?.message}</aria-label>
-          </fieldset>
-          <fieldset>
-            <label htmlFor="confirmPassword">Confirmar Senha</label>
-            <input
-              type="password"
-              id="confirmPassword"
-              placeholder="Digite novamente sua senha"
-              {...register("confirmPassword")}
-            />
-            <aria-label>{errors.confirmPassword?.message}</aria-label>
-          </fieldset>
-          <fieldset>
-            <label htmlFor="bio">Bio</label>
-            <input
-              type="text"
-              id="bio"
-              placeholder="Fale sobre você"
-              {...register("bio")}
-            />
-            <aria-label>{errors.bio?.message}</aria-label>
-          </fieldset>
-          <fieldset>
-            <label htmlFor="contact">Contato</label>
-            <input
-              type="number"
-              id="contact"
-              placeholder="Opção de contato"
-              {...register("contact")}
-            />
-            <aria-label>{errors.contact?.message}</aria-label>
-          </fieldset>
+          <Fieldset
+            labelName="Nome"
+            htmlFor="name"
+            type="name"
+            id="name"
+            placeholder="Digite seu nome."
+            error={errors.name?.message}
+            {...register("name")}
+          />
+          <Fieldset
+            labelName="Email"
+            htmlFor="email"
+            type="email"
+            id="email"
+            placeholder="Digite seu email"
+            error={errors.email?.message}
+            {...register("email")}
+          />
+          <Fieldset
+            labelName="Senha"
+            htmlFor="password"
+            type="password"
+            id="password"
+            placeholder="Digite sua senha"
+            error={errors.password?.message}
+            {...register("password")}
+          />
+          <Fieldset
+            labelName="Confirmar Senha"
+            htmlFor="confirmPassword"
+            type="password"
+            id="confirmPassword"
+            placeholder="Comfirme sua senha"
+            error={errors.confirmPassword?.message}
+            {...register("confirmPassword")}
+          />
+          <Fieldset
+            labelName="Bio"
+            htmlFor="bio"
+            type="text"
+            id="bio"
+            placeholder="Fale sobre você"
+            error={errors.bio?.message}
+            {...register("bio")}
+          />
+          <Fieldset
+            labelName="Contato"
+            htmlFor="contact"
+            type="number"
+            id="contact"
+            placeholder="Digite seu numero"
+            error={errors.contact?.message}
+            {...register("contact")}
+          />
           <fieldset>
             <label htmlFor="course_module">Selecionar Módulo</label>
             <select

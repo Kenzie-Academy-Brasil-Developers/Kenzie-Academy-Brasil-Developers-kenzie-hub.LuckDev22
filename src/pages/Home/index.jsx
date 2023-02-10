@@ -1,30 +1,38 @@
+import { useEffect } from "react";
 import { Header } from "../../components/Header";
+import { useNavigate } from "react-router-dom";
 
-const logout = () => {
-  localStorage.clear();
-};
+export const HomePage = ({ user }) => {
+  const logout = () => {
+    localStorage.clear();
+  };
 
-export const HomePage = () => {
+  const navigator = useNavigate();
+
+  useEffect(() => {
+    if (!user) {
+      navigator("/");
+    }
+  }, []);
+
   return (
     <>
-      <Header to="/" logout={logout} children="Sair" />
-      <section>
-        <p>Que pena! Estamos em desenvolvimento :</p>
-        <p>
-          Nossa aplicação está em desenvolvimento, em breve teremos novidades
-        </p>
-
-        <form action="">
-          <fieldset>
-            <label htmlFor="">teste</label>
-            <input type="text" />
-          </fieldset>
-          <fieldset>
-            <label htmlFor="">teste</label>
-            <input type="text" />
-          </fieldset>
-        </form>
-      </section>
+      {user ? (
+        <>
+          <Header to="/" logout={logout} children="Sair" />
+          <section>
+            <h2>{user.name}</h2>
+            <h2>{user.course_module}</h2>
+          </section>
+          <section>
+            <p>Que pena! Estamos em desenvolvimento :</p>
+            <p>
+              Nossa aplicação está em desenvolvimento, em breve teremos
+              novidades
+            </p>
+          </section>
+        </>
+      ) : null}
     </>
   );
 };
