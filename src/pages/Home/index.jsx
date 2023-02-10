@@ -1,9 +1,13 @@
 import { Header } from "../../components/Header";
 
+const logout = () => {
+  localStorage.clear();
+};
+
 export const HomePage = () => {
   return (
     <>
-      <Header />
+      <Header to="/" logout={logout} children="Sair" />
       <section>
         <p>Que pena! Estamos em desenvolvimento :</p>
         <p>

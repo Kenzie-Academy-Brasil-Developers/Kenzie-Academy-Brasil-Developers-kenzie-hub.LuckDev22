@@ -6,27 +6,39 @@ import { Api } from "../../services/api";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Fieldset } from "../../components/Fieldset";
 import { loginSchema } from "./loginSchema";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 export const LoginPage = () => {
-  const { register, handleSubmit,reset, formState: {errors} } = useForm({
-    resolver: yupResolver(loginSchema)
-    
+  const [user, setUser] = useState();
+  const [token, setToken] = useState();
+  const [userId, setUserId] = useState();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(loginSchema),
   });
 
-  console.log(errors)
+  console.log(errors);
   const navigate = useNavigate();
 
   const login = async (data) => {
     try {
       const response = await Api.post("/sessions", data);
       console.log(response);
+      setUser(response.data.user);
+      setToken(response.data.token);
+      setUserId(response.data.user.id);
+      localStorage.setItem("@TOKEN", response.data.token);
+      localStorage.setItem("@USERID", response.data.user.id);
       navigate("/home");
+      toast.success(`${response.data.user.name} Bem Vindo!!!`);
     } catch (error) {
-      console.log(error);
-
+      toast.error(error.response.data.message);
     }
-
-    console.log(data);
   };
 
   return (
@@ -47,7 +59,7 @@ export const LoginPage = () => {
             {...register("email")}
            
           /> */}
-          
+
           <fieldset>
             <label htmlFor="email">Email</label>
             <input
@@ -56,7 +68,6 @@ export const LoginPage = () => {
               label="email"
               placeholder="Digite seu email"
               {...register("email")}
-              
             />
             <aria-label>{errors.email?.message}</aria-label>
           </fieldset>

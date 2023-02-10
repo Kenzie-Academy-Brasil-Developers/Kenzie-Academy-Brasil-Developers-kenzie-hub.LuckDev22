@@ -4,6 +4,7 @@ import { Api } from "../../services/api";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "./registerSchema";
+import { toast } from "react-toastify";
 
 export const RegisterPage = () => {
   const { register, handleSubmit, formState: {errors} } = useForm({
@@ -15,9 +16,10 @@ export const RegisterPage = () => {
     try {
       const response = await Api.post("/users", data);
       console.log(response);
+      toast.success(`Usuario ${response.data.name} cadastrado com sucesso!`)
       navigate("/");
     } catch (error) {
-      console.log(error);
+      toast.error(error.response.data.message);
     }
   };
 

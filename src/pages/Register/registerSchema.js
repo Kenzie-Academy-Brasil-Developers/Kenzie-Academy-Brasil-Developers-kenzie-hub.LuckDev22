@@ -14,8 +14,8 @@ export const registerSchema = yup
     password: yup
       .string()
       .matches(/(?=.*?[A-Z])/, "Necessário uma letra maiúscula!")
-      .matches(/(?=.*?[a-z])/, "Necessário uma letra minúscula.")
-      .matches(/(?=.*?[0-9])/, "Necessário pelo menos um número.")
+      .matches(/(?=.*?[a-z])/, "Necessário uma letra minúscula!")
+      .matches(/(?=.*?[0-9])/, "Necessário pelo menos um número!")
       .matches(
         /(?=.*?[#?!@$%^&*-_])/,
         "Necessário pelo menos um caracterer especial!"
