@@ -2,9 +2,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { Header } from "../../components/Header";
 import { Api } from "../../services/api";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { registerSchema } from "./registerSchema";
 
 export const RegisterPage = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, formState: {errors} } = useForm({
+    resolver: yupResolver(registerSchema)
+  });
   const navigate = useNavigate();
 
   const registerUser = async (data) => {
@@ -34,6 +38,7 @@ export const RegisterPage = () => {
               placeholder="Digite aqui seu nome"
               {...register("name")}
             />
+            <aria-label>{errors.name?.message}</aria-label>
           </fieldset>
           <fieldset>
             <label htmlFor="email">Email</label>
@@ -43,6 +48,7 @@ export const RegisterPage = () => {
               placeholder="Digite aqui seu email"
               {...register("email")}
             />
+            <aria-label>{errors.email?.message}</aria-label>
           </fieldset>
           <fieldset>
             <label htmlFor="password">Senha</label>
@@ -52,14 +58,17 @@ export const RegisterPage = () => {
               placeholder="Digite aqui sua senha"
               {...register("password")}
             />
+            <aria-label>{errors.password?.message}</aria-label>
           </fieldset>
           <fieldset>
-            <label htmlFor="password">Confirmar Senha</label>
+            <label htmlFor="confirmPassword">Confirmar Senha</label>
             <input
               type="password"
+              id="confirmPassword"
               placeholder="Digite novamente sua senha"
-              {...register("password")}
+              {...register("confirmPassword")}
             />
+            <aria-label>{errors.confirmPassword?.message}</aria-label>
           </fieldset>
           <fieldset>
             <label htmlFor="bio">Bio</label>
@@ -69,6 +78,7 @@ export const RegisterPage = () => {
               placeholder="Fale sobre você"
               {...register("bio")}
             />
+            <aria-label>{errors.bio?.message}</aria-label>
           </fieldset>
           <fieldset>
             <label htmlFor="contact">Contato</label>
@@ -78,6 +88,7 @@ export const RegisterPage = () => {
               placeholder="Opção de contato"
               {...register("contact")}
             />
+            <aria-label>{errors.contact?.message}</aria-label>
           </fieldset>
           <fieldset>
             <label htmlFor="course_module">Selecionar Módulo</label>
@@ -93,6 +104,7 @@ export const RegisterPage = () => {
               <option value="modulo5">M5</option>
               <option value="modulo6">M6</option>
             </select>
+            <aria-label>{errors.course_module?.message}</aria-label>
           </fieldset>
 
           <button type="submit">Cadastrar</button>
