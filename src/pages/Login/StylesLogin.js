@@ -19,6 +19,7 @@ export const StyledLoginPage = styled.section`
     line-height: 28px;
   }
 
+  
   form {
     width: 100%;
     background-color: var(--grey-3);
