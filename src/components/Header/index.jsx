@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
+import { StyledHeader } from "./StyledHeader";
 
-export const Header = ({ to, children, logout }) => {
+export const Header = ({ className, children }) => {
   return (
-    <header>
+    <StyledHeader className={className}>
       <h1>Kenzie Hub</h1>
-      <Link to={to} onClick={()=> logout()}>{children}</Link>
-    </header>
+      {children}
+    </StyledHeader>
   );
 };

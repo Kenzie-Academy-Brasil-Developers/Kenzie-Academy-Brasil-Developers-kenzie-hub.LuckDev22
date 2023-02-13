@@ -7,6 +7,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Fieldset } from "../../components/Fieldset";
 import { loginSchema } from "./loginSchema";
 import { toast } from "react-toastify";
+import { StyledLoginPage } from "./StylesLogin";
+import { StyledSectionContainer } from "../../styles/Container";
 
 export const LoginPage = ({ setUser }) => {
   const {
@@ -37,7 +39,8 @@ export const LoginPage = ({ setUser }) => {
   return (
     <>
       <Header />
-      <section>
+      <StyledSectionContainer>
+      <StyledLoginPage>
         <div>
           <h2>Login</h2>
         </div>
@@ -51,7 +54,6 @@ export const LoginPage = ({ setUser }) => {
             error={errors.email?.message}
             {...register("email")}
           />
-
           <Fieldset
             labelName="Senha"
             htmlFor="password"
@@ -64,10 +66,11 @@ export const LoginPage = ({ setUser }) => {
           <button type="submit">Entrar</button>
         </form>
         <div>
-          <p>ainda não possui uma conta ?</p>
+          <p>Ainda não possui uma conta ?</p>
           <Link to="/register">Cadastre-se</Link>
         </div>
-      </section>
+      </StyledLoginPage>
+      </StyledSectionContainer>
     </>
   );
 };

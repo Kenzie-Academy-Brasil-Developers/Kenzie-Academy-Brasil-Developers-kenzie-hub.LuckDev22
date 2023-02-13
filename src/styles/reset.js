@@ -12,6 +12,10 @@ export const Reset = createGlobalStyle`
     
 }
 
+.App{
+ width: 1200px;
+}
+
 fieldset {
     border: 0;
 }

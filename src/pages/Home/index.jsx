@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Header } from "../../components/Header";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { StyledHomePage } from "./stylesHome";
 
 export const HomePage = ({ user }) => {
   const logout = () => {
@@ -19,18 +20,24 @@ export const HomePage = ({ user }) => {
     <>
       {user ? (
         <>
-          <Header to="/" logout={logout} children="Sair" />
-          <section>
-            <h2>{user.name}</h2>
-            <h2>{user.course_module}</h2>
-          </section>
-          <section>
-            <p>Que pena! Estamos em desenvolvimento :</p>
-            <p>
-              Nossa aplicação está em desenvolvimento, em breve teremos
-              novidades
-            </p>
-          </section>
+          <StyledHomePage>
+            <Header>
+              <Link to="/" onClick={() => logout()}>
+                Sair
+              </Link>
+            </Header>
+            <section>
+              <h2>Olá, {user.name}</h2>
+              <h3>{user.course_module}</h3>
+            </section>
+            <section>
+              <p>Que pena! Estamos em desenvolvimento :(</p>
+              <p>
+                Nossa aplicação está em desenvolvimento, em breve teremos
+                novidades
+              </p>
+            </section>
+          </StyledHomePage>
         </>
       ) : null}
     </>

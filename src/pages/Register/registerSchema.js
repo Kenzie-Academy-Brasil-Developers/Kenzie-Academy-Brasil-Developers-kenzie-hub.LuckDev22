@@ -7,10 +7,7 @@ export const registerSchema = yup
       .min(3, "O nome precisa ter pelo menos 3 caracteres!")
       .max(150, "Numero máximo de caracteres atingido!")
       .required("Nome obrigatório!"),
-    email: yup
-      .string()
-      .email("Email invalido!")
-      .required("Email obrigatório!"),
+    email: yup.string().email("Email invalido!").required("Email obrigatório!"),
     password: yup
       .string()
       .matches(/(?=.*?[A-Z])/, "Necessário uma letra maiúscula!")
@@ -26,14 +23,12 @@ export const registerSchema = yup
     contact: yup
       .string()
       .max(11)
-    //   [numero aceitos] {quantidades de numeros}
+      //   [numero aceitos] {quantidades de numeros}
       .matches(/[0-9]{2}[9]{1}[0-9]{4}[0-9]{4}/, {
-        message: "Numero invalido!"
+        message: "Numero invalido!",
       })
       .required("Informe um numero de telefone!"),
-    course_module: yup
-    .string()
-    .required("Escolha seu modulo atual!"),
+    course_module: yup.string().required("Escolha seu modulo atual!"),
     confirmPassword: yup
       .string()
       .required("A confirmação de senha é obrigatório!")

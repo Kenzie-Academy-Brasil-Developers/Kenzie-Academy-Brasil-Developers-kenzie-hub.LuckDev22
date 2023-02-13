@@ -19,5 +19,14 @@ export const GlobalStyles = createGlobalStyle`
     --sucess:                   #3FE864;
     --negative:                 #E83F5B;
 
+
+body{
+    width: 100%;
+    background-color: #000000;
+    color: var(--grey-0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
 }
 `;

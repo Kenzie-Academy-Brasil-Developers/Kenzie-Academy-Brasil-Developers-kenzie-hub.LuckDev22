@@ -4,12 +4,7 @@ import { LoginPage } from "../pages/Login";
 import { RegisterPage } from "../pages/Register";
 import { useState } from "react";
 
-
-
-
-
 export const RoutesPage = () => {
-
   const [user, setUser] = useState(null);
 
   return (
@@ -21,5 +16,3 @@ export const RoutesPage = () => {
     </Routes>
   );
 };
-
-
