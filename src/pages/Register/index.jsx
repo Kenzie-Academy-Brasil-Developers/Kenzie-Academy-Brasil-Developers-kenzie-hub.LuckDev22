@@ -7,7 +7,7 @@ import { registerSchema } from "./registerSchema";
 import { toast } from "react-toastify";
 import { Fieldset } from "../../components/Fieldset";
 import { StyledSectionContainer } from "../../styles/Container";
-import { StyledRegisterPage } from "./stylesRegister";
+import { StyledRegisterPage } from "./StylesRegister";
 import { StyledHeader } from "../../components/Header/StyledHeader";
 
 export const RegisterPage = () => {
