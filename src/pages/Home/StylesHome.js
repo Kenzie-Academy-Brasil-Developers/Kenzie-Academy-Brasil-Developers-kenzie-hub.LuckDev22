@@ -7,10 +7,12 @@ export const StyledHomePage = styled.section`
   flex-direction: column;
   gap: 32px;
   margin: 0 auto;
+  
   header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     a {
       display: flex;
       justify-content: center;
