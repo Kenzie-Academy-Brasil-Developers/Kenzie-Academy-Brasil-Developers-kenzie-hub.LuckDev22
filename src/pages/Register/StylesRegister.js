@@ -14,7 +14,7 @@ export const StyledRegisterPage = styled.section`
   flex-direction: column;
 
   border-radius: 4px;
-  
+
   h2 {
     font-weight: 700;
     font-size: 1.125rem;
