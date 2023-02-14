@@ -23,7 +23,6 @@ export const RegisterPage = () => {
   const registerUser = async (data) => {
     try {
       const response = await Api.post("/users", data);
-      console.log(response);
       toast.success(`Usuario ${response.data.name} cadastrado com sucesso!`);
       navigate("/");
     } catch (error) {

@@ -19,13 +19,11 @@ export const LoginPage = ({ setUser }) => {
     resolver: yupResolver(loginSchema),
   });
 
-  console.log(errors);
   const navigate = useNavigate();
 
   const login = async (data) => {
     try {
       const response = await Api.post("/sessions", data);
-      console.log(response);
       setUser(response.data.user);
       localStorage.setItem("@TOKEN", response.data.token);
       localStorage.setItem("@USERID", response.data.user.id);
