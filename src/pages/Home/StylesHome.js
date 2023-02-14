@@ -2,9 +2,11 @@ import styled from "styled-components";
 
 export const StyledHomePage = styled.section`
   width: 100%;
+  max-width: 1140px;
   display: flex;
   flex-direction: column;
   gap: 32px;
+  margin: 0 auto;
   header {
     display: flex;
     align-items: center;

@@ -10,7 +10,7 @@ export const StyledHeader = styled.header`
   .headerBetween {
     justify-content: space-between;
     align-items: center;
-    max-width: 390px;
+    max-width: 380px;
   }
 
   h1 {

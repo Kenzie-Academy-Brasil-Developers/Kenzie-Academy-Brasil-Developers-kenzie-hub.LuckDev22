@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { Api } from "../../services/api";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Fieldset } from "../../components/Fieldset";
+import { Fieldset } from "../../components/Input";
 import { loginSchema } from "./loginSchema";
 import { toast } from "react-toastify";
 import { StyledLoginPage } from "./StylesLogin";
@@ -40,36 +40,36 @@ export const LoginPage = ({ setUser }) => {
     <>
       <Header />
       <StyledSectionContainer>
-      <StyledLoginPage>
-        <div>
-          <h2>Login</h2>
-        </div>
-        <form onSubmit={handleSubmit(login)} noValidate>
-          <Fieldset
-            labelName="Email"
-            htmlFor="email"
-            type="email"
-            id="email"
-            placeholder="Digite seu email"
-            error={errors.email?.message}
-            {...register("email")}
-          />
-          <Fieldset
-            labelName="Senha"
-            htmlFor="password"
-            type="password"
-            id="password"
-            placeholder="Digite sua senha"
-            error={errors.password?.message}
-            {...register("password")}
-          />
-          <button type="submit">Entrar</button>
-        </form>
-        <div>
-          <p>Ainda não possui uma conta ?</p>
-          <Link to="/register">Cadastre-se</Link>
-        </div>
-      </StyledLoginPage>
+        <StyledLoginPage>
+          <div>
+            <h2>Login</h2>
+          </div>
+          <form onSubmit={handleSubmit(login)} noValidate>
+            <Fieldset
+              labelName="Email"
+              htmlFor="email"
+              type="email"
+              id="email"
+              placeholder="Digite seu email"
+              error={errors.email?.message}
+              {...register("email")}
+            />
+            <Fieldset
+              labelName="Senha"
+              htmlFor="password"
+              type="password"
+              id="password"
+              placeholder="Digite sua senha"
+              error={errors.password?.message}
+              {...register("password")}
+            />
+            <button type="submit">Entrar</button>
+          </form>
+          <div>
+            <p>Ainda não possui uma conta ?</p>
+            <Link to="/register">Cadastre-se</Link>
+          </div>
+        </StyledLoginPage>
       </StyledSectionContainer>
     </>
   );

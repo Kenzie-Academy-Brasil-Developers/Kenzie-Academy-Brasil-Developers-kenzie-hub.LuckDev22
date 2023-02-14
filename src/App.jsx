@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <div className="App">
-      <ToastContainer
+    <ToastContainer
         position="top-right"
         autoClose={2000}
         hideProgressBar={false}
@@ -17,6 +17,7 @@ function App() {
         pauseOnHover
         theme="dark"
       />
+      
     <Routes/>
       
     </div>

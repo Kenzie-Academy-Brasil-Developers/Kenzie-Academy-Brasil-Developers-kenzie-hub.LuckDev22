@@ -10,14 +10,11 @@ export const registerSchema = yup
     email: yup.string().email("Email invalido!").required("Email obrigatório!"),
     password: yup
       .string()
+      .matches(/(?=.*?[#?!@$%^&*-_])/, "Necessário pelo menos um caracterer especial!")
       .matches(/(?=.*?[A-Z])/, "Necessário uma letra maiúscula!")
       .matches(/(?=.*?[a-z])/, "Necessário uma letra minúscula!")
       .matches(/(?=.*?[0-9])/, "Necessário pelo menos um número!")
-      .matches(
-        /(?=.*?[#?!@$%^&*-_])/,
-        "Necessário pelo menos um caracterer especial!"
-      )
-      .min(8)
+      .min(8, "Sua senha deve conter no minimo 8 caracteres")
       .required("Senha obrigatória!"),
     bio: yup.string().required("Fale um pouco sobre você!"),
     contact: yup

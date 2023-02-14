@@ -10,7 +10,7 @@ export const RoutesPage = () => {
   return (
     <Routes>
       <Route path="/" element={<LoginPage setUser={setUser} />} />
-      <Route path="/home" element={<HomePage user={user} />} />
+      <Route path="/home" element={<HomePage user={user}  setUser={setUser} />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>

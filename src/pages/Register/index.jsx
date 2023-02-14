@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "./registerSchema";
 import { toast } from "react-toastify";
-import { Fieldset } from "../../components/Fieldset";
+import { Fieldset } from "../../components/Input";
 import { StyledSectionContainer } from "../../styles/Container";
 import { StyledRegisterPage } from "./StylesRegister";
 import { StyledHeader } from "../../components/Header/StyledHeader";
@@ -35,9 +35,7 @@ export const RegisterPage = () => {
     <>
       <StyledHeader>
         <Header className="headerBetween">
-          <Link to="/login" onClick={() => logout()}>
-            Voltar
-          </Link>
+          <Link to="/login">Voltar</Link>
         </Header>
       </StyledHeader>
 

@@ -3,9 +3,10 @@ import { Header } from "../../components/Header";
 import { Link, useNavigate } from "react-router-dom";
 import { StyledHomePage } from "./StylesHome";
 
-export const HomePage = ({ user }) => {
+export const HomePage = ({ user, setUser }) => {
   const logout = () => {
     localStorage.clear();
+    setUser(null);
   };
 
   const navigator = useNavigate();
@@ -20,24 +21,26 @@ export const HomePage = ({ user }) => {
     <>
       {user ? (
         <>
-          <StyledHomePage>
-            <Header>
-              <Link to="/" onClick={() => logout()}>
-                Sair
-              </Link>
-            </Header>
-            <section>
-              <h2>Olá, {user.name}</h2>
-              <h3>{user.course_module}</h3>
-            </section>
-            <section>
-              <p>Que pena! Estamos em desenvolvimento :(</p>
-              <p>
-                Nossa aplicação está em desenvolvimento, em breve teremos
-                novidades
-              </p>
-            </section>
-          </StyledHomePage>
+          
+            <StyledHomePage>
+              <Header>
+                <Link to="/" onClick={() => logout()}>
+                  Sair
+                </Link>
+              </Header>
+              <section>
+                <h2>Olá, {user.name}</h2>
+                <h3>{user.course_module}</h3>
+              </section>
+              <section>
+                <p>Que pena! Estamos em desenvolvimento :(</p>
+                <p>
+                  Nossa aplicação está em desenvolvimento, em breve teremos
+                  novidades
+                </p>
+              </section>
+            </StyledHomePage>
+        
         </>
       ) : null}
     </>
