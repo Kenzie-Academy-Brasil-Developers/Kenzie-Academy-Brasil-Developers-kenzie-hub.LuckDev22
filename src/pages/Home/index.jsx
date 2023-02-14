@@ -1,13 +1,13 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { Header } from "../../components/Header";
 import { Link, useNavigate } from "react-router-dom";
 import { StyledHomePage } from "./StylesHome";
+import { UserContext } from "../../contexts/UserContext";
 
-export const HomePage = ({ user, setUser }) => {
-  const logout = () => {
-    localStorage.clear();
-    setUser(null);
-  };
+export const HomePage = () => {
+
+  const { user, userLogout } = useContext(UserContext);
+
 
   const navigator = useNavigate();
 
@@ -20,11 +20,10 @@ export const HomePage = ({ user, setUser }) => {
   return (
     <>
       {user ? (
-        <>
-          
+        <>   
             <StyledHomePage>
               <Header>
-                <Link to="/" onClick={() => logout()}>
+                <Link to="/" onClick={() => userLogout()}>
                   Sair
                 </Link>
               </Header>
@@ -40,7 +39,6 @@ export const HomePage = ({ user, setUser }) => {
                 </p>
               </section>
             </StyledHomePage>
-        
         </>
       ) : null}
     </>

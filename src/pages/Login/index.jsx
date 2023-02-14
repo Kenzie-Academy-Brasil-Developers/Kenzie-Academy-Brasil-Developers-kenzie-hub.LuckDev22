@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
 import { Header } from "../../components/Header";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import { Api } from "../../services/api";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Fieldset } from "../../components/Input";
 import { loginSchema } from "./loginSchema";
-import { toast } from "react-toastify";
 import { StyledLoginPage } from "./StylesLogin";
 import { StyledSectionContainer } from "../../styles/Container";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
 
-export const LoginPage = ({ setUser }) => {
+export const LoginPage = () => {
+  const { userLogin } = useContext(UserContext);
+ 
   const {
     register,
     handleSubmit,
@@ -18,21 +19,6 @@ export const LoginPage = ({ setUser }) => {
   } = useForm({
     resolver: yupResolver(loginSchema),
   });
-
-  const navigate = useNavigate();
-
-  const login = async (data) => {
-    try {
-      const response = await Api.post("/sessions", data);
-      setUser(response.data.user);
-      localStorage.setItem("@TOKEN", response.data.token);
-      localStorage.setItem("@USERID", response.data.user.id);
-      navigate("/home");
-      toast.success(`${response.data.user.name} Bem Vindo!!!`);
-    } catch (error) {
-      toast.error(error.response.data.message);
-    }
-  };
 
   return (
     <>
@@ -42,7 +28,7 @@ export const LoginPage = ({ setUser }) => {
           <div>
             <h2>Login</h2>
           </div>
-          <form onSubmit={handleSubmit(login)} noValidate>
+          <form onSubmit={handleSubmit(userLogin)} noValidate>
             <Fieldset
               labelName="Email"
               htmlFor="email"

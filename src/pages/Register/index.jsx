@@ -1,16 +1,18 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Header } from "../../components/Header";
-import { Api } from "../../services/api";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "./registerSchema";
-import { toast } from "react-toastify";
 import { Fieldset } from "../../components/Input";
 import { StyledSectionContainer } from "../../styles/Container";
 import { StyledRegisterPage } from "./StylesRegister";
 import { StyledHeader } from "../../components/Header/StyledHeader";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
 
 export const RegisterPage = () => {
+  const { registerUser } = useContext(UserContext);
+  
   const {
     register,
     handleSubmit,
@@ -18,17 +20,6 @@ export const RegisterPage = () => {
   } = useForm({
     resolver: yupResolver(registerSchema),
   });
-  const navigate = useNavigate();
-
-  const registerUser = async (data) => {
-    try {
-      const response = await Api.post("/users", data);
-      toast.success(`Usuario ${response.data.name} cadastrado com sucesso!`);
-      navigate("/");
-    } catch (error) {
-      toast.error(error.response.data.message);
-    }
-  };
 
   return (
     <>
