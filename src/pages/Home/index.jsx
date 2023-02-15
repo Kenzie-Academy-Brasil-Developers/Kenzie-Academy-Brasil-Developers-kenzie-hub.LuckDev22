@@ -8,15 +8,6 @@ export const HomePage = () => {
 
   const { user, userLogout } = useContext(UserContext);
 
-
-  const navigator = useNavigate();
-
-  useEffect(() => {
-    if (!user) {
-      navigator("/");
-    }
-  }, []);
-
   return (
     <>
       {user ? (

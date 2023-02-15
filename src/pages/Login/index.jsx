@@ -14,11 +14,16 @@ export const LoginPage = () => {
  
   const {
     register,
-    handleSubmit,
+    handleSubmit,reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(loginSchema),
   });
+
+const Submit = (data) =>{
+  userLogin(data);
+  reset();
+}
 
   return (
     <>
@@ -28,7 +33,7 @@ export const LoginPage = () => {
           <div>
             <h2>Login</h2>
           </div>
-          <form onSubmit={handleSubmit(userLogin)} noValidate>
+          <form onSubmit={handleSubmit(Submit)} noValidate>
             <Fieldset
               labelName="Email"
               htmlFor="email"

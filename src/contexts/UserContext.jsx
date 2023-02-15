@@ -6,22 +6,34 @@ import { Api } from "../services/api";
 export const UserContext = createContext({});
 
 export const UserProvider = ({ children }) => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null);
 
-    // useEffect(() => {
-    //     try{
-    //         const response = Api.get("/progile", {
-        
-    //         })
-    //     }catch (error){
-    //         console.log(error)
-    //     }
-    // },[])
+  useEffect(() => {
+    const token = localStorage.getItem("@TOKEN");
+    if (token) {
+      const AutoLogin = async () => {
+        try {
+          const response = await Api.get("/profile", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          console.log(response);
+          setUser(response.data);
+          navigate("/home");
+        } catch (error) {
+          localStorage.removeItem("@TOKEN");
+        }
+      };
+      AutoLogin();
+    }
+  }, []);
 
-// Login 
-const userLogin = async (data) => {
+  // Login
+
+  const userLogin = async (data) => {
     try {
       const response = await Api.post("/sessions", data);
       setUser(response.data.user);
@@ -35,16 +47,14 @@ const userLogin = async (data) => {
   };
 
   const userLogout = () => {
-    localStorage.removeItem("@TOKEN")
-    localStorage.removeItem("@USERID")
+    localStorage.removeItem("@TOKEN");
+    localStorage.removeItem("@USERID");
     setUser(null);
   };
 
+  //register
 
-//register
-
-
-const registerUser = async (data) => {
+  const registerUser = async (data) => {
     try {
       const response = await Api.post("/users", data);
       toast.success(`Usuario ${response.data.name} cadastrado com sucesso!`);
@@ -54,10 +64,11 @@ const registerUser = async (data) => {
     }
   };
 
-
-    return(
-        <UserContext.Provider value={{user, setUser, registerUser, userLogin, userLogout}}>
-            {children}
-        </UserContext.Provider>
-    )
+  return (
+    <UserContext.Provider
+      value={{ user, setUser, registerUser, userLogin, userLogout }}
+    >
+      {children}
+    </UserContext.Provider>
+  );
 };
