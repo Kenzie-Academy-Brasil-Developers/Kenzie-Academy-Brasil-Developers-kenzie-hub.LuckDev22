@@ -23,11 +23,17 @@ export const HomePage = () => {
                 <h3>{user.course_module}</h3>
               </section>
               <section>
-                <p>Que pena! Estamos em desenvolvimento :(</p>
-                <p>
-                  Nossa aplicação está em desenvolvimento, em breve teremos
-                  novidades
-                </p>
+                <div><h2>Tecnologias</h2> <button>+</button></div>
+                <ul>
+                {user.techs.map((techs) => (
+                  <li key={techs.id}> 
+                    <div>
+                      <h2>{techs.title}</h2>
+                      <h3>techs.status</h3>
+                    </div>
+                  </li>
+                ))}
+                </ul>
               </section>
             </StyledHomePage>
         </>

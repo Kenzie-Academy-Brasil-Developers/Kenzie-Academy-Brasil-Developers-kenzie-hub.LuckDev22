@@ -19,8 +19,9 @@ export const LoginPage = () => {
   } = useForm({
     resolver: yupResolver(loginSchema),
   });
-
+ 
 const Submit = (data) =>{
+  
   userLogin(data);
   reset();
 }
