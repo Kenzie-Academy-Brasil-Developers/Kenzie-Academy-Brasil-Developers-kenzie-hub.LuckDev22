@@ -1,19 +1,24 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Fieldset } from "../Input";
+import { TechContext } from "../../../contexts/TechContext";
+import { Fieldset } from "../../Input";
 
-export const Modal = ({titleModal }) => {
+export const ModalAddTech = () => {
+  const { removeTech } = useContext(TechContext);
 
-    const {register, handleSubmit, formState: {errors}} = useForm({
-
-    })
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({});
 
   return (
     <div>
       <div>
-        <h2>{titleModal}</h2>
+        <h2>Cadastrar Tecnologia</h2>
         <button>X</button>
       </div>
-      <form>
+      <form onSubmit={handleSubmit(createTech)}>
         <Fieldset
           labelName="Nome"
           htmlFor="Nome"
@@ -25,15 +30,10 @@ export const Modal = ({titleModal }) => {
         />
         <fieldset>
           <label htmlFor="status">Status</label>
-          <select
-            name="status"
-            id="status"
-            {...register("status")}
-          >
+          <select name="status" id="status" {...register("status")}>
             <option value="Iniciante">Iniciante</option>
             <option value="Intermediário">Intermediário</option>
             <option value="Avançado">Avançado</option>
-           
           </select>
           <aria-label>{errors.status?.message}</aria-label>
         </fieldset>

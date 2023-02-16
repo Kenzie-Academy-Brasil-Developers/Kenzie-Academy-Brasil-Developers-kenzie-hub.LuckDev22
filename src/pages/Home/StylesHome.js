@@ -21,7 +21,7 @@ export const StyledHomePage = styled.section`
     }
   }
 
-.addTech{
+button{
   font-size: 32px;
   color: var(--color-white);
 }
