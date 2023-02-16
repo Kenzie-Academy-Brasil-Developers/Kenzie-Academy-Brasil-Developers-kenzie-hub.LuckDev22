@@ -7,7 +7,25 @@ export const StyledHomePage = styled.section`
   flex-direction: column;
   gap: 32px;
   margin: 0 auto;
-  
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    li {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+    }
+  }
+
+.addTech{
+  font-size: 32px;
+  color: var(--color-white);
+}
+
   header {
     display: flex;
     align-items: center;
