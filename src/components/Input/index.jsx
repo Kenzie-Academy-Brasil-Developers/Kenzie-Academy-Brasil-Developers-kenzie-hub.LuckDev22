@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 
 export const Fieldset = forwardRef(
-  ({ htmlFor, type, id, error, placeholder, labelName, ...rest }, ref) => {
+  ({ htmlFor, type, id, error, placeholder, labelName, ...register }, ref) => {
     return (
       <fieldset>
         <label htmlFor={htmlFor}>{labelName}</label>
@@ -10,7 +10,7 @@ export const Fieldset = forwardRef(
           id={id}
           placeholder={placeholder}
           ref={ref}
-          {...rest}
+          {...register}
         />
         {error ? <aria-label>{error}</aria-label> : null}
       </fieldset>

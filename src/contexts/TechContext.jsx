@@ -5,7 +5,8 @@ import { Api } from "../services/api";
 export const TechContext = createContext({});
 
 export const TechProvider = ({ children }) => {
-  const [techs, setTechs] = useState([]);
+  const [techs, setTechs] = useState();
+  const [editTech, setEditTech] = useState(null);
 
   useEffect(() => {
     const userId = localStorage.getItem("@USERID");
@@ -53,17 +54,39 @@ export const TechProvider = ({ children }) => {
       console.log(error);
     }
   };
-  
-  conts updateTech = async () => {
+
+  const updateTech = async (formTechUpdate, techId) => {
     try {
-        
+      const token = localStorage.getItem("@TOKEN");
+      const response = Api.put(`/users/techs/${techId}`, formTechUpdate, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const newTech = techs.map((tech) => {
+        if (techId === tech.id) {
+          return { ...tech, ...formTechUpdate };
+        } else {
+          return tech;
+        }
+      });
+      setTechs(newTech);
     } catch (error) {
-        console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   return (
-    <TechContext.Provider value={{ techs, createTech, removeTech }}>
+    <TechContext.Provider
+      value={{
+        techs,
+        createTech,
+        removeTech,
+        updateTech,
+        editTech,
+        setEditTech,
+      }}
+    >
       {children}
     </TechContext.Provider>
   );

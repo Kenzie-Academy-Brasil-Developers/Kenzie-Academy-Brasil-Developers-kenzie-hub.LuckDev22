@@ -8,23 +8,25 @@ import { StyledLoginPage } from "./StylesLogin";
 import { StyledSectionContainer } from "../../styles/Container";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
+import { FieldsetPassword } from "../../components/InputPassword";
+
 
 export const LoginPage = () => {
   const { userLogin } = useContext(UserContext);
- 
+
   const {
     register,
-    handleSubmit,reset,
+    handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(loginSchema),
   });
- 
-const Submit = (data) =>{
-  
-  userLogin(data);
-  reset();
-}
+
+  const Submit = (data) => {
+    userLogin(data);
+    reset();
+  };
 
   return (
     <>
@@ -44,7 +46,7 @@ const Submit = (data) =>{
               error={errors.email?.message}
               {...register("email")}
             />
-            <Fieldset
+            <FieldsetPassword
               labelName="Senha"
               htmlFor="password"
               type="password"
@@ -53,6 +55,7 @@ const Submit = (data) =>{
               error={errors.password?.message}
               {...register("password")}
             />
+
             <button type="submit">Entrar</button>
           </form>
           <div>

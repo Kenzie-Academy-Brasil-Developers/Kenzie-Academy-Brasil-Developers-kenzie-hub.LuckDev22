@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form";
 import { TechContext } from "../../../contexts/TechContext";
 import { Fieldset } from "../../Input";
 
-export const ModalAddTech = () => {
-  const { removeTech } = useContext(TechContext);
+export const ModalUpdateTech = () => {
+  const { removeTech, updateTech } = useContext(TechContext);
 
   const {
     register,
@@ -39,6 +39,8 @@ export const ModalAddTech = () => {
         </fieldset>
 
         <button type="submit">Cadastrar Tecnologia</button>
+        <button onClick={() => removeTech()}>remove</button>
+        <button onClick={() => updateTech()}>update</button>
       </form>
     </div>
   );
