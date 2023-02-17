@@ -7,6 +7,8 @@ export const TechContext = createContext({});
 export const TechProvider = ({ children }) => {
   const [techs, setTechs] = useState();
   const [editTech, setEditTech] = useState(null);
+  const [modalAdd, setModalAdd] = useState(false);
+  const [modalUpdate, setModalUpdate] = useState(false);
 
   useEffect(() => {
     const userId = localStorage.getItem("@USERID");
@@ -58,12 +60,13 @@ export const TechProvider = ({ children }) => {
   const updateTech = async (formTechUpdate, techId) => {
     try {
       const token = localStorage.getItem("@TOKEN");
-      const response = Api.put(`/users/techs/${techId}`, formTechUpdate, {
+      const response = await Api.put(`/users/techs/${techId}`, formTechUpdate, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      const newTech = techs.map((tech) => {
+      console.log(response);
+      const newTech = techs.map(tech => {
         if (techId === tech.id) {
           return { ...tech, ...formTechUpdate };
         } else {
@@ -85,6 +88,10 @@ export const TechProvider = ({ children }) => {
         updateTech,
         editTech,
         setEditTech,
+        modalAdd,
+        setModalAdd,
+        modalUpdate,
+        setModalUpdate,
       }}
     >
       {children}

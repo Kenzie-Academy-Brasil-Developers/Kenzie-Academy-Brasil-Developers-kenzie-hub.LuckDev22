@@ -2,20 +2,23 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { TechContext } from "../../../contexts/TechContext";
 import { Fieldset } from "../../Input";
+import { StyledModalAdd } from "./styledModalAdd";
 
 
 export const ModalAddTech = () => {
-    const { createTech } = useContext(TechContext);
+    const { createTech,setModalAdd } = useContext(TechContext);
+    
+
 
     const {register, handleSubmit, formState: {errors}} = useForm({
 
     })
 
   return (
-    <div>
+    <StyledModalAdd>
       <div>
         <h2>Cadastrar Tecnologia</h2>
-        <button>X</button>
+        <button onClick={()=> setModalAdd(false)}>X</button>
       </div>
       <form onSubmit={handleSubmit(createTech)}>
         <Fieldset
@@ -44,6 +47,6 @@ export const ModalAddTech = () => {
 
         <button type="submit">Cadastrar Tecnologia</button>
       </form>
-    </div>
+    </StyledModalAdd>
   );
 };

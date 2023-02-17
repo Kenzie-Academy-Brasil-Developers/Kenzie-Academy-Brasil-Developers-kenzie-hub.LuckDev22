@@ -4,21 +4,27 @@ import { TechContext } from "../../../contexts/TechContext";
 import { Fieldset } from "../../Input";
 
 export const ModalUpdateTech = () => {
-  const { removeTech, updateTech } = useContext(TechContext);
-
+  const { removeTech, updateTech, editTech, setModalUpdate } =
+    useContext(TechContext);
+  console.log(editTech);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({});
+  } = useForm({
+    defaultValues: {
+      title: editTech.title,
+      status: editTech.status,
+    },
+  });
 
   return (
     <div>
       <div>
-        <h2>Cadastrar Tecnologia</h2>
-        <button>X</button>
+        <h2>Tecnologia Detalhes</h2>
+        <button onClick={() => setModalUpdate(false)}>X</button>
       </div>
-      <form onSubmit={handleSubmit(createTech)}>
+      <form onSubmit={handleSubmit(updateTech)}>
         <Fieldset
           labelName="Nome"
           htmlFor="Nome"
@@ -26,7 +32,6 @@ export const ModalUpdateTech = () => {
           id="title"
           placeholder="Digite a tecnologia"
           error={errors.title?.message}
-          {...register("title")}
         />
         <fieldset>
           <label htmlFor="status">Status</label>
@@ -38,9 +43,10 @@ export const ModalUpdateTech = () => {
           <aria-label>{errors.status?.message}</aria-label>
         </fieldset>
 
-        <button type="submit">Cadastrar Tecnologia</button>
-        <button onClick={() => removeTech()}>remove</button>
-        <button onClick={() => updateTech()}>update</button>
+        <button type="submit" onClick={() => updateTech()}>
+          update
+        </button>
+        <button onClick={() => removeTech(editTech.id)}>remove</button>
       </form>
     </div>
   );
