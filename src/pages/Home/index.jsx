@@ -31,10 +31,13 @@ export const HomePage = () => {
                 Sair
               </Link>
             </Header>
+
             <section>
               <h2>Olá, {user.name}</h2>
               <h3>{user.course_module}</h3>
             </section>
+            
+
             <section>
               <div>
                 <h2>Tecnologias</h2>{" "}
@@ -44,33 +47,26 @@ export const HomePage = () => {
                 >
                   +
                 </button>
+                <div rote="dialog">{modalAdd && <ModalAddTech />}</div>
               </div>
-              <section>{modalAdd && <ModalAddTech />}</section>
               <ul>
                 {techs.length > 0 ? (
                   <ul>
                     {techs.map((tech) => (
-                      <li 
-                        onClick={() => setModalUpdate(!modalUpdate)}
-                        key={tech.id}
-                      >
-                        <h2>{tech.title}</h2>
-                        <h3>{tech.status}</h3>
-                        <button onClick={() => setEditTech(tech)}>Update</button>
-                        <button onClick={() => removeTech(tech.id)}>
-                          remove
-                        </button>
-                       
-                      </li>
+                      <div key={tech.id} onClick={() => setEditTech(tech)}>
+                        <li onClick={() => setModalUpdate(!modalUpdate)}>
+                          <h2>{tech.title}</h2>
+                          <h3>{tech.status}</h3>
+                        </li>
+                      </div>
                     ))}
                   </ul>
-
                 ) : (
-                  <li></li>
+                  <li>Tecnologias não Cadastradas</li>
                 )}
               </ul>
-         {editTech &&   <ModalUpdateTech  />}
             </section>
+            <section>{modalUpdate && <ModalUpdateTech />}</section>
           </StyledHomePage>
         </>
       ) : null}

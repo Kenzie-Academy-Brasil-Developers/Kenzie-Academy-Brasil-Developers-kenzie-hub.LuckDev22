@@ -52,6 +52,7 @@ export const TechProvider = ({ children }) => {
       toast.success("Tecnologia removida com Sucesso!");
       const newTech = techs.filter((tech) => tech.id !== techId);
       setTechs(newTech);
+      setModalUpdate(false)
     } catch (error) {
       console.log(error);
     }
