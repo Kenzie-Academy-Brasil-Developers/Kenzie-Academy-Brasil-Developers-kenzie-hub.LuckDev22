@@ -10,7 +10,6 @@ import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { FieldsetPassword } from "../../components/InputPassword";
 
-
 export const LoginPage = () => {
   const { userLogin } = useContext(UserContext);
 

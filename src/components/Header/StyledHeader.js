@@ -13,6 +13,26 @@ export const StyledHeader = styled.header`
     max-width: 380px;
   }
 
+  .headerHome {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+      width: 100%;
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 0px 22px;
+      height: 40px;
+      background: var(--grey-3);
+      color: var(--grey-0);
+      border-radius: 4px;
+    }
+  }
+
   h1 {
     color: var(--color-primary);
   }

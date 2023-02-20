@@ -13,10 +13,10 @@ export const StyledModal = styled.section`
   left: 50%;
   transform: translate(-50%, -50%);
 
-.modalContainer{
-  position: fixed;
-  top: 30%;
-}
+  .modalContainer {
+    position: fixed;
+    top: 30%;
+  }
 
   .divTitle {
     display: flex;
@@ -25,17 +25,18 @@ export const StyledModal = styled.section`
     background: #343b41;
     border-radius: 4px 4px 0px 0px;
     padding: 12px 20px;
+
     h2 {
       font-weight: 700;
       font-size: 0.875rem;
       line-height: 24px;
     }
+
     button {
-      color: #868e96;
+      color: var(--grey-1);
       font-weight: 600;
       font-size: 1rem;
       line-height: 26px;
-      
     }
   }
 
@@ -44,7 +45,7 @@ export const StyledModal = styled.section`
     display: flex;
     flex-direction: column;
     gap: 23px;
-    background: #212529;
+    background: var(--grey-3);
 
     fieldset {
       display: flex;
@@ -60,16 +61,13 @@ export const StyledModal = styled.section`
       select {
         padding: 0px 18px;
         height: 48px;
-
-        /* grey-2 */
-
-        background: #343b41;
-        /* grey-0 */
-        color: #f8f9fa;
-        border: 1.2px solid #f8f9fa;
+        background: var(--grey-2);
+        color: var(--grey-0);
+        border: 1.2px solid var(--grey-0);
         border-radius: 4px;
       }
     }
+
     button {
       display: flex;
       justify-content: center;
@@ -77,17 +75,14 @@ export const StyledModal = styled.section`
       padding: 0px 80px;
       height: 48px;
 
-      /* color-primary */
+      background: var(--color-primary);
 
-      background: #ff577f;
-      /* color-primary */
-
-      border: 1.2px solid #ff577f;
+      border: 1.2px solid var(--color-primary);
       border-radius: 4px;
       font-weight: 500;
       font-size: 1rem;
 
-      color: #ffffff;
+      color: var(--color-white);
       margin-bottom: 15px;
     }
   }
@@ -104,21 +99,14 @@ export const StyledModal = styled.section`
 
     height: 48px;
 
-    /* color-primary-Disable */
-
-    background: #59323f;
-    /* color-primary-Disable */
-
-    border: 1.2182px solid #59323f;
+    background: var(--color-primary-negative);
+    border: 1.2182px solid var(--color-primary-negative);
     border-radius: 4px;
 
     font-weight: 500;
-font-size: 1rem;
-/* identical to box height, or 165% */
-
-
-color: #FFFFFF;
-
+    font-size: 1rem;
+  
+    color: var(--color-white);
   }
 
   .btnRemove {
@@ -129,18 +117,13 @@ color: #FFFFFF;
     gap: 10.15px;
     height: 48px;
 
-    /* grey-1 */
-
-    background: #868e96;
-    /* grey-1 */
-
-    border: 1.2px solid #868e96;
+    background: var(--grey-1);
+    border: 1.2px solid var(--grey-1);
     border-radius: 4px;
+
     font-weight: 500;
-font-size: 1rem;
+    font-size: 1rem;
 
-
-
-color: #FFFFFF;
+    color: var(--color-white);
   }
 `;

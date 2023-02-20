@@ -8,6 +8,7 @@ export const StyledTechs = styled.section`
   ul {
     width: 100%;
     display: flex;
+    flex-direction: column;
     gap: 16px;
     padding: 22px 22px;
   }

@@ -20,7 +20,6 @@ export const UserProvider = ({ children }) => {
               Authorization: `Bearer ${token}`,
             },
           });
-          console.log(response);
           setUser(response.data);
           navigate("/home");
         } catch (error) {

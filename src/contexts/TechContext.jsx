@@ -16,10 +16,9 @@ export const TechProvider = ({ children }) => {
       const getTechs = async () => {
         try {
           const response = await Api.get(`/users/${userId}`);
-          console.log(response.data.techs);
           setTechs(response.data.techs);
         } catch (error) {
-          console.log(error);
+          toast.error("Erro ao carregar Tecnologias!");
         }
       };
       getTechs();
@@ -35,9 +34,10 @@ export const TechProvider = ({ children }) => {
         },
       });
       setTechs([...techs, response.data]);
-      console.log(response);
+      setModalAdd(false);
+      toast.success("Tecnologia adicionada com Sucesso!");
     } catch (error) {
-      console.log(error);
+      toast.error("Tecnologia já cadastrada!");
     }
   };
 
@@ -52,9 +52,9 @@ export const TechProvider = ({ children }) => {
       toast.success("Tecnologia removida com Sucesso!");
       const newTech = techs.filter((tech) => tech.id !== techId);
       setTechs(newTech);
-      setModalUpdate(false)
+      setModalUpdate(false);
     } catch (error) {
-      console.log(error);
+      // toast.error("Falha ao remover tecnologia!");
     }
   };
 
@@ -66,17 +66,19 @@ export const TechProvider = ({ children }) => {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(response);
-      const newTech = techs.map(tech => {
+      const newTech = techs.map((tech) => {
         if (techId === tech.id) {
           return { ...tech, ...formTechUpdate };
         } else {
           return tech;
         }
       });
+      toast.success("Tecnologia atualizada com Sucesso!");
       setTechs(newTech);
+      setModalUpdate(false);
     } catch (error) {
-      console.log(error);
+      // toast.error("Falha ao atualizar tecnologia!");
+      // verificar porque mesmo tendo sucesso na atualização da tecnologia aparece o toast de error
     }
   };
 

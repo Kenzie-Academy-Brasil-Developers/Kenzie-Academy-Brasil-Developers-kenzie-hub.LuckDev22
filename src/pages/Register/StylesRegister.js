@@ -79,10 +79,10 @@ export const StyledRegisterPage = styled.section`
     align-items: center;
     height: 40px;
 
-    background: #59323f;
+    background: var(--color-primary-negative);
     color: var(--grey-0);
 
-    border: 1.2px solid #59323f;
+    border: 1.2px solid var(--color-primary-negative);
     border-radius: 4px;
   }
 

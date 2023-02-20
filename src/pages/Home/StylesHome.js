@@ -2,57 +2,30 @@ import styled from "styled-components";
 
 export const StyledHomePage = styled.section`
   width: 100%;
-  max-width: 1140px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
   margin: 0 auto;
-
-  ul {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-
-    li {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-    }
-  }
+  gap: 24px;
 
 button{
-  font-size: 32px;
+  font-size: 2rem;
   color: var(--color-white);
 }
 
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    a {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-sizing: border-box;
-      padding: 0px 22px;
-      height: 40px;
-      background: var(--grey-3);
-      color: var(--grey-0);
-      border-radius: 4px;
-    }
-  }
-
-  section {
+  .userSection {
     display: flex;
     justify-content: space-between;
+    padding: 45px 0px;
+    width: 100%;
+    border-top: solid 1px var(--grey-50);
+    border-bottom: solid 1px var(--grey-50);
 
-    border: solid 1px var(--grey-0) h2 {
+    h2 {
       font-weight: 700;
       font-size: 1.125rem;
       line-height: 28px;
     }
+
     h3 {
       font-weight: 400;
       font-size: 0.75rem;
@@ -60,6 +33,14 @@ button{
       color: var(--grey-1);
     }
   }
+  .userData {
+    display: flex;
+    justify-content: space-between;
+  }
+
+section {
+  width: 100%;
+}
 
   section:nth-child(3) {
     display: flex;
@@ -69,7 +50,7 @@ button{
 
     p {
       font-weight: 700;
-      font-size: 18px;
+      font-size: 1.125rem;
       line-height: 28px;
     }
     p:nth-child(2) {

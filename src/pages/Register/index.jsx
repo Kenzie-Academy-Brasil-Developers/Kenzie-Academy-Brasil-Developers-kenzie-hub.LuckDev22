@@ -12,7 +12,7 @@ import { UserContext } from "../../contexts/UserContext";
 
 export const RegisterPage = () => {
   const { registerUser } = useContext(UserContext);
-  
+
   const {
     register,
     handleSubmit,

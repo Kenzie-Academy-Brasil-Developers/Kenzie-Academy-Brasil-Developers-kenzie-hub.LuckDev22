@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Header } from "../../components/Header";
 import { Link } from "react-router-dom";
 import { StyledHomePage } from "./StylesHome";
@@ -7,52 +7,48 @@ import { TechContext } from "../../contexts/TechContext";
 import { ModalAddTech } from "../../components/Modal/modalAddTech";
 import { ModalUpdateTech } from "../../components/Modal/modalUpdateTech";
 import { Techs } from "../../components/techs";
+import { Addtechs } from "../../components/techs/addTechs";
+import { StyledHeader } from "../../components/Header/StyledHeader";
+import { ContainerHome } from "./ContainerHome";
 
 export const HomePage = () => {
   const { user, userLogout } = useContext(UserContext);
-  const {
-    techs,
-    createTech,
-    removeTech,
-    modalAdd,
-    setModalAdd,
-    modalUpdate,
-    setModalUpdate,
-    editTech,
-    setEditTech,
-  } = useContext(TechContext);
+  const { modalAdd, modalUpdate } = useContext(TechContext);
 
   return (
     <>
       {user ? (
         <>
+          <ContainerHome>
+            <StyledHeader>
+              <Header className="headerHome">
+                <Link to="/" onClick={() => userLogout()}>
+                  Sair
+                </Link>
+              </Header>
+            </StyledHeader>
+          </ContainerHome>
+
           <StyledHomePage>
-            <Header>
-              <Link to="/" onClick={() => userLogout()}>
-                Sair
-              </Link>
-            </Header>
-
-            <section>
-              <h2>Olá, {user.name}</h2>
-              <h3>{user.course_module}</h3>
+            <section className="userSection">
+              <ContainerHome>
+                <div className="userData">
+                  <h2>Olá, {user.name}</h2>
+                  <h3>{user.course_module}</h3>
+                </div>
+              </ContainerHome>
             </section>
-            
 
-            <section>
-              <div>
-                <h2>Tecnologias</h2>{" "}
-                <button
-                  className="addTech"
-                  onClick={() => setModalAdd(!modalAdd)}
-                >
-                  +
-                </button>
-                <div rote="dialog">{modalAdd && <ModalAddTech />}</div>
-              </div>
-              <Techs/>
-            </section>
-            <section>{modalUpdate && <ModalUpdateTech />}</section>
+            <ContainerHome>
+              <section>
+                <Addtechs />
+                {modalAdd && <ModalAddTech />}
+              </section>
+              <section>
+                <Techs />
+                {modalUpdate && <ModalUpdateTech />}
+              </section>
+            </ContainerHome>
           </StyledHomePage>
         </>
       ) : null}
