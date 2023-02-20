@@ -9,8 +9,10 @@ export const TechProvider = ({ children }) => {
   const [editTech, setEditTech] = useState(null);
   const [modalAdd, setModalAdd] = useState(false);
   const [modalUpdate, setModalUpdate] = useState(false);
+  const [loading, setLoading] = useState(true) 
 
   useEffect(() => {
+    setLoading(true);
     const userId = localStorage.getItem("@USERID");
     if (userId) {
       const getTechs = async () => {
@@ -19,6 +21,8 @@ export const TechProvider = ({ children }) => {
           setTechs(response.data.techs);
         } catch (error) {
           toast.error("Erro ao carregar Tecnologias!");
+        } finally{
+          setLoading(false);
         }
       };
       getTechs();
@@ -96,6 +100,7 @@ export const TechProvider = ({ children }) => {
         setModalAdd,
         modalUpdate,
         setModalUpdate,
+        loading
       }}
     >
       {children}

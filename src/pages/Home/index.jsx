@@ -13,7 +13,12 @@ import { ContainerHome } from "./ContainerHome";
 
 export const HomePage = () => {
   const { user, userLogout } = useContext(UserContext);
-  const { modalAdd, modalUpdate } = useContext(TechContext);
+  const { modalAdd, modalUpdate,loading  } = useContext(TechContext);
+
+
+  if (loading) {
+    return <p>Carregando...</p>;
+  }
 
   return (
     <>
