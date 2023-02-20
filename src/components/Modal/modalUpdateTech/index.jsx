@@ -59,7 +59,7 @@ export const ModalUpdateTech = () => {
             >
               Salvar alterações
             </button>
-            <button
+            <button type="button"
               className="btnRemove"
               onClick={() => removeTech(editTech.id)}
             >

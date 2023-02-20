@@ -41,27 +41,10 @@ export const TechProvider = ({ children }) => {
     }
   };
 
-  const removeTech = async (techId) => {
-    try {
-      const token = localStorage.getItem("@TOKEN");
-      const response = await Api.delete(`/users/techs/${techId}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      toast.success("Tecnologia removida com Sucesso!");
-      const newTech = techs.filter((tech) => tech.id !== techId);
-      setTechs(newTech);
-      setModalUpdate(false);
-    } catch (error) {
-      // toast.error("Falha ao remover tecnologia!");
-    }
-  };
-
   const updateTech = async (formTechUpdate, techId) => {
     try {
       const token = localStorage.getItem("@TOKEN");
-      const response = await Api.put(`/users/techs/${techId}`, formTechUpdate, {
+      await Api.put(`/users/techs/${techId}`, formTechUpdate, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -77,8 +60,26 @@ export const TechProvider = ({ children }) => {
       setTechs(newTech);
       setModalUpdate(false);
     } catch (error) {
+      console.log(error);
       // toast.error("Falha ao atualizar tecnologia!");
       // verificar porque mesmo tendo sucesso na atualização da tecnologia aparece o toast de error
+    }
+  };
+
+  const removeTech = async (techId) => {
+    try {
+      const token = localStorage.getItem("@TOKEN");
+      const response = await Api.delete(`/users/techs/${techId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      toast.success("Tecnologia removida com Sucesso!");
+      const newTech = techs.filter((tech) => tech.id !== techId);
+      setTechs(newTech);
+      setModalUpdate(false);
+    } catch (error) {
+      toast.error("Falha ao remover tecnologia!");
     }
   };
 
