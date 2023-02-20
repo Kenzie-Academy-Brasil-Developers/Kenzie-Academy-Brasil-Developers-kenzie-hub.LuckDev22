@@ -6,6 +6,7 @@ import { UserContext } from "../../contexts/UserContext";
 import { TechContext } from "../../contexts/TechContext";
 import { ModalAddTech } from "../../components/Modal/modalAddTech";
 import { ModalUpdateTech } from "../../components/Modal/modalUpdateTech";
+import { Techs } from "../../components/techs";
 
 export const HomePage = () => {
   const { user, userLogout } = useContext(UserContext);
@@ -49,22 +50,7 @@ export const HomePage = () => {
                 </button>
                 <div rote="dialog">{modalAdd && <ModalAddTech />}</div>
               </div>
-              <ul>
-                {techs.length > 0 ? (
-                  <ul>
-                    {techs.map((tech) => (
-                      <div key={tech.id} onClick={() => setEditTech(tech)}>
-                        <li onClick={() => setModalUpdate(!modalUpdate)}>
-                          <h2>{tech.title}</h2>
-                          <h3>{tech.status}</h3>
-                        </li>
-                      </div>
-                    ))}
-                  </ul>
-                ) : (
-                  <li>Tecnologias não Cadastradas</li>
-                )}
-              </ul>
+              <Techs/>
             </section>
             <section>{modalUpdate && <ModalUpdateTech />}</section>
           </StyledHomePage>

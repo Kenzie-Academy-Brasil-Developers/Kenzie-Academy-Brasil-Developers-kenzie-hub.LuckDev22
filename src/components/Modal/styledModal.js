@@ -35,6 +35,7 @@ export const StyledModal = styled.section`
       font-weight: 600;
       font-size: 1rem;
       line-height: 26px;
+      
     }
   }
 
@@ -87,6 +88,7 @@ export const StyledModal = styled.section`
       font-size: 1rem;
 
       color: #ffffff;
+      margin-bottom: 15px;
     }
   }
   .button {
