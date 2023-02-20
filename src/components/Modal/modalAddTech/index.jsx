@@ -1,7 +1,9 @@
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { TechContext } from "../../../contexts/TechContext";
 import { Fieldset } from "../../Input";
+import { modalFormSchema } from "../modalSchema";
 import { StyledModal } from "../styledModal";
 
 export const ModalAddTech = () => {
@@ -11,7 +13,9 @@ export const ModalAddTech = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({});
+  } = useForm({
+    resolver: yupResolver(modalFormSchema),
+  });
 
   return (
     <StyledModal>
