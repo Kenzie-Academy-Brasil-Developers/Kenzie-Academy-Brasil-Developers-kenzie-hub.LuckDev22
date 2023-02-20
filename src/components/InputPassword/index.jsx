@@ -16,8 +16,9 @@ export const FieldsetPassword = forwardRef(
           ref={ref}
           {...register}
         />
+        <button className="btnHidden" type="button" onClick={() => setIsHidden(!isHidden)}>{isHidden ? (<AiOutlineEyeInvisible/>) : (<AiOutlineEye/>)}</button>
+
         {error ? <aria-label>{error}</aria-label> : null}
-        <button type="button" onClick={() => setIsHidden(!isHidden)}>{isHidden ? (<AiOutlineEyeInvisible/>) : (<AiOutlineEye/>)}</button>
       </fieldset>
     );
   }

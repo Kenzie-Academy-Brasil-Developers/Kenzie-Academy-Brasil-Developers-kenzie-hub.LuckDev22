@@ -43,7 +43,45 @@ export const StyledLoginPage = styled.section`
         border: 1.2px solid var(--grey-0);
         background: var(--grey-2);
         color: var(--grey-0);
+        position: relative;
       }
+
+      .btnHidden {
+        /* margin-top: 34px; */
+        margin-left: auto;
+        position: static;
+        max-width: 30px;
+        background-color: transparent;
+        border-style: none;
+        margin-top: -58px;
+        margin-right: 4px;
+        z-index: 1;
+      }
+/* 
+      @media (max-width: 368px) {
+        .btnHidden {
+        margin-top: 34px;
+        margin-left: auto;
+        position: fixed;
+        max-width: 30px;
+        background-color: transparent;
+        border-style: none;
+      
+      }
+      }
+
+      @media (max-width: 330px) {
+        .btnHidden {
+        margin-top: 34px;
+        margin-left: auto;
+        position: fixed;
+        max-width: 30px;
+        background-color: transparent;
+        border-style: none;
+      
+      }
+      } */
+
       label {
         color: var(--grey-0);
         font-weight: 400;

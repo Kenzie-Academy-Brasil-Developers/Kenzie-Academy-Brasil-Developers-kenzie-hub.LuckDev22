@@ -7,10 +7,14 @@ export const StyledHomePage = styled.section`
   margin: 0 auto;
   gap: 24px;
 
-button{
-  font-size: 2rem;
-  color: var(--color-white);
-}
+  button {
+    font-size: 2rem;
+    color: var(--color-white);
+  }
+
+  button:hover {
+    background: #343b41;
+  }
 
   .userSection {
     display: flex;
@@ -38,9 +42,9 @@ button{
     justify-content: space-between;
   }
 
-section {
-  width: 100%;
-}
+  section {
+    width: 100%;
+  }
 
   section:nth-child(3) {
     display: flex;

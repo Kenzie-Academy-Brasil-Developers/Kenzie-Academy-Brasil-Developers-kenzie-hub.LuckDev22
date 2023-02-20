@@ -44,6 +44,7 @@ export const LoginPage = () => {
               placeholder="Digite seu email"
               error={errors.email?.message}
               {...register("email")}
+ 
             />
             <FieldsetPassword
               labelName="Senha"

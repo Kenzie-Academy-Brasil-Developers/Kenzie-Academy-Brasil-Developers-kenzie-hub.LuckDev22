@@ -49,10 +49,19 @@ export const ModalUpdateTech = () => {
             <aria-label>{errors.status?.message}</aria-label>
           </fieldset>
           <div className="button">
-            <button className="btnUpdate" type="submit" onClick={() => updateTech()}>
+            <button
+              className="btnUpdate"
+              type="submit"
+              onClick={() => updateTech()}
+            >
               Salvar alterações
             </button>
-            <button className="btnRemove" onClick={() => removeTech(editTech.id)}>Excluir</button>
+            <button
+              className="btnRemove"
+              onClick={() => removeTech(editTech.id)}
+            >
+              Excluir
+            </button>
           </div>
         </form>
       </div>

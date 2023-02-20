@@ -11,6 +11,7 @@ export const Fieldset = forwardRef(
           placeholder={placeholder}
           ref={ref}
           {...register}
+        
         />
         {error ? <aria-label>{error}</aria-label> : null}
       </fieldset>

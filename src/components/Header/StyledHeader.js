@@ -14,11 +14,11 @@ export const StyledHeader = styled.header`
   }
 
   .headerHome {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 70px;
-      width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    width: 100%;
 
     a {
       display: flex;
@@ -49,5 +49,9 @@ export const StyledHeader = styled.header`
     line-height: 17px;
     border-radius: 4px;
     padding: 0 10px;
+  }
+
+  a:hover {
+    background: #343b41;
   }
 `;
