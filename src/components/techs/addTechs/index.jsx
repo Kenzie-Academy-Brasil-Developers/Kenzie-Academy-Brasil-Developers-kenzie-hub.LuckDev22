@@ -1,20 +1,9 @@
 import React, { useContext } from "react";
 import { TechContext } from "../../../contexts/TechContext";
-import { ModalAddTech } from "../../Modal/modalAddTech";
 import { StyledAddTechs } from "./styledAddTechs";
 
 export const Addtechs = () => {
-  const {
-    techs,
-    createTech,
-    removeTech,
-    modalAdd,
-    setModalAdd,
-    modalUpdate,
-    setModalUpdate,
-    editTech,
-    setEditTech,
-  } = useContext(TechContext);
+  const { modalAdd, setModalAdd } = useContext(TechContext);
 
   return (
     <StyledAddTechs>

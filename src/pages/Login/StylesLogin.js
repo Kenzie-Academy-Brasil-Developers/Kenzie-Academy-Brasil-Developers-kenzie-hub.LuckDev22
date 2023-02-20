@@ -47,7 +47,6 @@ export const StyledLoginPage = styled.section`
       }
 
       .btnHidden {
-        /* margin-top: 34px; */
         margin-left: auto;
         position: static;
         max-width: 30px;
@@ -57,30 +56,6 @@ export const StyledLoginPage = styled.section`
         margin-right: 4px;
         z-index: 1;
       }
-/* 
-      @media (max-width: 368px) {
-        .btnHidden {
-        margin-top: 34px;
-        margin-left: auto;
-        position: fixed;
-        max-width: 30px;
-        background-color: transparent;
-        border-style: none;
-      
-      }
-      }
-
-      @media (max-width: 330px) {
-        .btnHidden {
-        margin-top: 34px;
-        margin-left: auto;
-        position: fixed;
-        max-width: 30px;
-        background-color: transparent;
-        border-style: none;
-      
-      }
-      } */
 
       label {
         color: var(--grey-0);
