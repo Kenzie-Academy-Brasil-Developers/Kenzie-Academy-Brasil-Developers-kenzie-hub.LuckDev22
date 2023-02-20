@@ -1,8 +1,10 @@
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { TechContext } from "../../../contexts/TechContext";
 import { Fieldset } from "../../Input";
 import { StyledModal } from "../styledModal";
+import { modalUpdateTechSchema } from "./modalUpdateTechSchema";
 
 export const ModalUpdateTech = () => {
   const { removeTech, updateTech, editTech, setModalUpdate } =
@@ -10,8 +12,10 @@ export const ModalUpdateTech = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
+    resolver: yupResolver(modalUpdateTechSchema),
     defaultValues: {
       title: editTech.title,
       status: editTech.status,
