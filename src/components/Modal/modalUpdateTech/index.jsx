@@ -41,7 +41,7 @@ export const ModalUpdateTech = () => {
             placeholder="Digite a tecnologia"
             {...register("title")}
             error={errors.title?.message}
-          />
+           disabled />
           <fieldset>
             <label htmlFor="status">Status</label>
             <select name="status" id="status" {...register("status")}>
