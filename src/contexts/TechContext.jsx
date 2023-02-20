@@ -5,7 +5,7 @@ import { Api } from "../services/api";
 export const TechContext = createContext({});
 
 export const TechProvider = ({ children }) => {
-  const [techs, setTechs] = useState();
+  const [techs, setTechs] = useState([]);
   const [editTech, setEditTech] = useState(null);
   const [modalAdd, setModalAdd] = useState(false);
   const [modalUpdate, setModalUpdate] = useState(false);
