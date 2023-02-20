@@ -1,5 +1,5 @@
 import { forwardRef, useState } from "react";
-import {AiOutlineEye, AiOutlineEyeInvisible} from "react-icons/Ai"
+import {BsEye, BsEyeSlash} from "react-icons/bs"
 
 export const FieldsetPassword = forwardRef(
   ({ htmlFor, type, id, error, placeholder, labelName, ...register }, ref) => {
@@ -16,7 +16,7 @@ export const FieldsetPassword = forwardRef(
           ref={ref}
           {...register}
         />
-        <button className="btnHidden" type="button" onClick={() => setIsHidden(!isHidden)}>{isHidden ? (<AiOutlineEyeInvisible/>) : (<AiOutlineEye/>)}</button>
+        <button className="btnHidden" type="button" onClick={() => setIsHidden(!isHidden)}>{isHidden ? (<BsEyeSlash/>) : (<BsEye/>)}</button>
 
         {error ? <aria-label>{error}</aria-label> : null}
       </fieldset>
