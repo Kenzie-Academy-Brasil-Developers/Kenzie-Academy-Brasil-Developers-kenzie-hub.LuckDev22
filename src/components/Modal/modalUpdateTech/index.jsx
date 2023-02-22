@@ -24,6 +24,7 @@ export const ModalUpdateTech = () => {
   const submit = (formTechUpdate) => {
     updateTech(formTechUpdate, editTech.id);
   };
+
   return (
     <StyledModal>
       <div className="modalContainer">
@@ -41,7 +42,8 @@ export const ModalUpdateTech = () => {
             placeholder="Digite a tecnologia"
             {...register("title")}
             error={errors.title?.message}
-           disabled />
+            disabled
+          />
           <fieldset>
             <label htmlFor="status">Status</label>
             <select name="status" id="status" {...register("status")}>
@@ -52,14 +54,11 @@ export const ModalUpdateTech = () => {
             <aria-label>{errors.status?.message}</aria-label>
           </fieldset>
           <div className="button">
-            <button
-              className="btnUpdate"
-              type="submit"
-              onClick={() => updateTech()}
-            >
+            <button className="btnUpdate" type="submit">
               Salvar alterações
             </button>
-            <button type="button"
+            <button
+              type="button"
               className="btnRemove"
               onClick={() => removeTech(editTech.id)}
             >

@@ -46,6 +46,7 @@ export const TechProvider = ({ children }) => {
   };
 
   const updateTech = async (formTechUpdate, techId) => {
+    
     try {
       const token = localStorage.getItem("@TOKEN");
       await Api.put(`/users/techs/${techId}`, formTechUpdate, {
@@ -65,7 +66,7 @@ export const TechProvider = ({ children }) => {
       setModalUpdate(false);
     } catch (error) {
       console.log(error);
-      // toast.error("Falha ao atualizar tecnologia!");
+      toast.error("Falha ao atualizar tecnologia!");
       // verificar porque mesmo tendo sucesso na atualização da tecnologia aparece o toast de error
     }
   };
